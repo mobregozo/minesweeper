@@ -15,7 +15,7 @@ Install Gulp globally - For automation purposes
     
 `npm install -g gulp`
 
-To run the test
+To run the test we will need karma-cli installed
 
 `npm install -g karma-cli`
 
@@ -29,11 +29,13 @@ Then run the following command in order to install all the dependencies:
 
 Production Buils
 
-## Build the App
+## Build the App for production
+
+Build the App, create a dist folder
 
 `gulp prod`
 
-Zip the App
+Zip the App for deployment purpose - depends on the Server
 
 `gulp zip`
 

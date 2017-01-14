@@ -25,9 +25,9 @@ Then run the following command in order to install all the dependencies:
 
 ## Run The App in a Development Mode
 
-`gulp`
+By running the default gulp task, we are going to create a local http server to code and watch the updates in live in the default browser.
 
-Production Buils
+`gulp`
 
 ## Build the App for production
 

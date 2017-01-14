@@ -27,7 +27,9 @@ Then run the following command in order to install all the dependencies:
 
 `gulp`
 
-Build the App
+Production Buils
+
+## Build the App
 
 `gulp prod`
 
@@ -35,11 +37,7 @@ Zip the App
 
 `gulp zip`
 
-Clean Dist Folder
-
-`gulp clean`
-
-How to Run the Test of  the App
+## How to Run the Test
 
 `npm test`
 
@@ -67,7 +65,9 @@ gulpfile.js : Gulp tasks are specified and described in there
 
 karma.config.js: Karma configuration file
 
-##Next Steps
+##Notes
 
-The intention was to create a well sctrured App, easy to mantain and esclate. 
-I developed a component called 'mine', with the intention to make a reusable AngularJs component.
+- The intention was to create a well sctrured App, easy to mantain and esclate. 
+- Developed a component called 'mines-game', with the intention to make a reusable AngularJs component.
+- Added Bootstrap for a better look and feel.
+- Added SASS preprocessor in order to type css code fast and clean.

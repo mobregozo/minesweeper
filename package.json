@@ -1,8 +1,8 @@
 {
-  "name": "resume",
+  "name": "Minesweeper",
   "version": "0.0.0",
   "main": "index.js",
-  "description": "A resume App",
+  "description": "A Minesweeper vide game App",
   "dependencies": {
     "express": "^4.14.0",
     "gzippo": "^0.2.0",

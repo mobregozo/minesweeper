@@ -1,7 +1,7 @@
-# MinesWeeper App
+# MineSweeper App
 
 This is a SPA, developed with AngularJs 1.5 as the main framework.
-A Playground for users who wants to play MinesWeeper, which  is a single-player puzzle video game, where the objective is to clear a rectangular board containing hidden "mines" without detonating any of them.
+A Playground for users who wants to play MineSweeper, which  is a single-player puzzle video game, where the objective is to clear a rectangular board containing hidden "mines" without detonating any of them.
 
 Demo:
 https://minesweeperapp.herokuapp.com

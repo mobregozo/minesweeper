@@ -142,14 +142,12 @@
                 if (vm.mineChart.rows[row - neighbors[n].x] && vm.mineChart.rows[row - neighbors[n].x].fields[column - neighbors[n].y]) {
                     if (vm.mineChart.rows[row - neighbors[n].x].fields[column - neighbors[n].y].content == CONS_VALUES.bomb) {
                         mineCount++;
-                        alert(mineCount);
                     }
 
                 }
             }
 
             if (mineCount > 0) {
-                alert(mineCount);
                 vm.mineChart.rows[row].fields[column].content = mineCount;
                 vm.mineChart.rows[row].fields[column].number = true;
             }

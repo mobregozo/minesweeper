@@ -1,0 +1,12 @@
+.navbar-nav {
+    li {
+        &:hover {
+            cursor: pointer;
+            background-color:white;
+        }
+        .active {
+            color: black;
+            font-weight: bold;
+        }
+    }
+}

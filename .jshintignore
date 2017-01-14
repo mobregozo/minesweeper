@@ -1,0 +1,4 @@
+./app/assets/lib/**
+./app/shared/templates.js
+./app/shared/**/*.spec.js
+./app/components/**/*.spec.js

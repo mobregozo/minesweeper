@@ -1,0 +1,31 @@
+.navbar-nav li:hover {
+  cursor: pointer;
+  background-color: white; }
+
+.navbar-nav li .active {
+  color: black;
+  font-weight: bold; }
+
+.minechart-container {
+  border: solid 1px grey;
+  margin: 15px auto;
+  padding: 20px;
+  border-radius: 6px; }
+  .minechart-container .minechart {
+    margin: 20px auto;
+    width: 100%; }
+    .minechart-container .minechart .mainrow .field {
+      line-height: 0;
+      border-spacing: 0;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      color: black;
+      box-sizing: content-box;
+      background-color: grey; }
+      .minechart-container .minechart .mainrow .field.used {
+        background-color: rgba(128, 128, 128, 0.45);
+        color: white; }
+      .minechart-container .minechart .mainrow .field:hover {
+        opacity: 0.6;
+        cursor: pointer; }

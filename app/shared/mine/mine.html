@@ -1,0 +1,23 @@
+<div class="minechart-container">	
+	<div class="scores-container" ng-if="vm.chrono">
+		<h3>Current Game Score {{vm.chrono}}</h3>
+	</div>
+
+	<p ng-if="!vm.game.started && !vm.game.finished">
+		We have all Set Up, Please Press Start button, to start playing
+	</p>
+
+	<!-- GAME TABLE -->
+	<div class="minechart">
+	    <div class="mainrow" ng-repeat="row in vm.mineChart.rows">
+	        <button ng-disabled="vm.game.finished" class="btn btn-default field text-center" ng-repeat="field in row.fields" ng-disabled="" ng-click="vm.clickField(field)" ng-class="{used:field.used}">
+	            <img class="text-center" ng-if="field.used && field.content==vm.const.bomb" ng-src="assets/images/{{field.content}}.png">
+	            <span ng-if="field.used && field.number" >{{field.content}}</span>
+	        </button>
+	    </div>
+	</div>
+	<button class="btn btn-success" ng-if="!vm.game.started" ng-click="vm.createNewGame()">Start New Game</button>
+	<button class="btn btn-success" ng-if="vm.game.started" ng-click="vm.createNewGame()">Restart Game</button>
+	<button class="btn btn-danger" ng-if="!vm.game.finished && vm.game.started" ng-click="vm.cancelGame()">Stop</button>	
+	<!-- <button class="btn btn-info" ng-if="vm.game.started" ng-click="vm.saveGame()">Save Game</button> -->
+</div>

@@ -1,9 +1,9 @@
 (function() {
     'use strict';
 
-    MineController.$inject = ['$scope', 'CONS_VALUES', '$timeout', 'timeConverter'];
+    MineController.$inject = ['$scope', 'CONS_VALUES', '$timeout', 'timeConverter', '$uibModal'];
 
-    function MineController($scope, CONS_VALUES, $timeout, timeConverter) {
+    function MineController($scope, CONS_VALUES, $timeout, timeConverter, $uibModal) {
 
 
         // Injecting $scope just for comparison
@@ -16,57 +16,85 @@
             rows: []
         };
 
-        vm.game = { started: false ,fieldUsed:0};
+        //CHRONO fn
+
+        var timer = null;
+        vm.start = 0;
+        vm.end = 0;
+        vm.diff = 0;
+        vm.chrono = null;
+
+        vm.game = { started: false, fieldUsed: 0, rowSize: 0, colSize: 0, mineAmount: 0 };
         vm.game.finished = false;
+
+
+        vm.openModalMsg = function(message, className) {
+            $uibModal.open({
+                template: '<div class="modal-msg"><div class="text-' + className + '">' + message + '</div></div>',
+            });
+        };
 
         vm.clickField = function(field) {
             field.used = true;
-            if (field.content==CONS_VALUES.bomb){
-                vm.game.finished =true;
+            if (field.content == CONS_VALUES.bomb) {
+                vm.game.finished = true;
                 chronoStop();
-                alert('Sorry, you just lose the game, Please try again!');
+                vm.openModalMsg('Sorry, you just lose the game, Please try again!', 'danger');
                 return;
             }
-            vm.game.fieldUsed = vm.game.fieldUsed+1;
-            if (vm.game.fieldUsed == (vm.rowSize * vm.colSize) - vm.mineAmount && !vm.game.finished){
-                vm.game.finished =true;
+            vm.game.fieldUsed = vm.game.fieldUsed + 1;
+            if (vm.game.fieldUsed == (vm.game.rowSize * vm.game.colSize) - vm.game.mineAmount && !vm.game.finished) {
+                vm.game.finished = true;
                 chronoStop();
-                alert('We have a Winner');
+                vm.openModalMsg('We have a Winner', 'sucess');
             }
         };
 
-
-        vm.cancelGame = function() {
+        function cancelCurrentGame() {
             chronoStop();
-            vm.game = { started: false,fieldUsed:0 };
+            vm.game.started = false;
+            vm.game.fieldUsed = 0;
             vm.mineChart = {
                 rows: []
             };
+            var timer = null;
+            vm.start = 0;
+            vm.end = 0;
+            vm.diff = 0;
+            vm.chrono = null;
+        }
+
+
+        vm.cancelGame = function() {
+            cancelCurrentGame();
         };
 
         vm.saveGame = function() {
-            //TODO: Save the Game 
+            vm.saveGameCallback();
         };
 
         function generateNumbersField(minefield) {
-            for (var y = 0; y < vm.rowSize; y++) {
-                for (var x = 0; x < vm.colSize; x++) {
-                    calculateNumberForField(x, y);
+            for (var y = 0; y < vm.game.rowSize; y++) {
+                for (var x = 0; x < vm.game.colSize; x++) {
+                    calculateNumberForField(y, x);
                 }
             }
         }
 
         vm.createNewGame = function() {
+            cancelCurrentGame();
+            vm.game.finished = false;
             vm.mineChart = {};
-            vm.mineChart.rows = [];            
-            vm.game = { started: true,fieldUsed:0 };
+            vm.mineChart.rows = [];
+            vm.game.started = true;
+            vm.game.fieldUsed = 0;
             //Create Structure
-            for (var i = 0; i < vm.rowSize; i++) {
+            for (var i = 0; i < vm.game.rowSize; i++) {
                 var newRow = {};
                 newRow.fields = [];
 
                 //Iterate over all the rows
-                for (var j = 0; j < vm.colSize; j++) {
+                for (var w = 0; w < vm.game.colSize; w++) {
                     var newField = {};
                     newField.used = false;
                     newField.number = false;
@@ -81,15 +109,15 @@
         };
 
         function addMine() {
-            var row = Math.round(Math.random() * (vm.rowSize - 1));
-            var column = Math.round(Math.random() * (vm.colSize - 1));
+            var row = Math.round(Math.random() * (vm.game.rowSize - 1));
+            var column = Math.round(Math.random() * (vm.game.colSize - 1));
 
             //Add the mine to the sctrucure
             vm.mineChart.rows[row].fields[column].content = CONS_VALUES.bomb;
         }
 
         function addAllMines() {
-            for (var i = 0; i < vm.mineAmount; i++) {
+            for (var i = 0; i < vm.game.mineAmount; i++) {
                 addMine();
             }
         }
@@ -127,14 +155,7 @@
             }
         }
 
-        
 
-        //CHRONO fn
-
-        var timer = null;
-        vm.start = 0;
-        vm.end = 0;
-        vm.diff = 0;
 
         function chrono() {
             vm.end = new Date();
@@ -172,9 +193,7 @@
         controller: MineController,
         controllerAs: 'vm',
         bindings: {
-            rowSize: '=',
-            colSize: '=',
-            mineAmount: '='
+            saveGameCallback: '&'
         }
     });
 })();

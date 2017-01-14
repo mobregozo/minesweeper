@@ -23,7 +23,7 @@ const concat = require('gulp-concat');
 const paths = {
     sass: ['./app/**/*.scss'],
     templateCache: ['./app/components/**/*.html', './app/shared/*.html'],
-    ng_annotate: ['./app/components/**/*.js'],
+    ng_annotate: ['./app/components/**/*.js','./app/shared/**/*.js'],
     useref: ['./app/*.html'],
     images: ['./app/assets/images/**/*'],
     extras: ['./app/favicon.ico'],

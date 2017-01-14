@@ -5,10 +5,10 @@
         function() {
             var vm = this;
 
-            vm.resetForm=function(){
-                vm.game = {};
+            vm.saveGame = function(){
+                //TODO:saveGame
+                console.log('game is being saved');
             };
-
         }
     ];
 

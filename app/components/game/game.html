@@ -1,36 +1,5 @@
 <!-- Game Component -->
-<div ng-show="gameGenerated">
-    <mine-component row-size="vm.game.rows" col-size="vm.game.cols" mine-amount="vm.game.bomb">
+<div>
+    <mine-component save-game-callback="vm.saveGame()">
     </mine-component>
-</div>
-<p ng-show="newGame.$invalid" class="text-danger">
-    Please Complete the form in oder tostart playing
-</p>
-<!-- Game Config Form For a new Game -->
-<div class="clearfix">
-    <h2>Set Game Parameters</h2>
-    <form name="newGame" class="col-xs-12 col-sm-8 col-md-4" novalidate>
-
-        
-        <div class="form-group" ng-class="{ 'has-error': newGame.rows.$invalid }">
-            Rows
-            <input type="number" class="form-control" name="rows" ng-model="vm.game.rows" min="2" max="20" required>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': newGame.cols.$invalid }">
-            Cols
-            <input type="number" class="form-control" name="cols" ng-model="vm.game.cols" min="2" max="20" required>
-        </div>
-        <div class="form-group" ng-class="{ 'has-error': newGame.mines.$invalid || vm.game.bomb > (vm.game.rows * vm.game.cols)}">
-            Mines
-            <input type="number" class="form-control" name="mines" ng-model="vm.game.bomb" min="1" required>
-        </div>
-        <p ng-show="vm.game.bomb > (vm.game.rows * vm.game.cols)" class="text-danger">
-            Limit Exceeded
-        </p>
-        <br>
-        <button class="btn btn-success" ng-disabled="newGame.$invalid || vm.game.bomb > (vm.game.rows * vm.game.cols)" ng-click="gameGenerated=true">
-            Generate New Game
-        </button>
-        <button class="btn btn-warning" ng-click="vm.resetForm()">Reset Form</button>
-    </form>
 </div>

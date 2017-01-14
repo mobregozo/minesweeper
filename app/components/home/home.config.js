@@ -8,9 +8,7 @@
                 url: 'home',
                 views: {
                     'content': {
-                        templateUrl: 'components/home/home.html',
-                        controller: 'HomeCtrl',
-                        controllerAs: 'vm'
+                        templateUrl: 'components/home/home.html'
                     }
                 }
             });

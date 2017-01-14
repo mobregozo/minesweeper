@@ -6,11 +6,13 @@ module.exports = function(config) {
 
     files: [
       'assets/lib/angular/angular.js',
-      'assets/lib/angular-route/angular-route.js',
+      'assets/lib/angular-ui-router/release/angular-ui-router.min.js',
       'assets/lib/angular-mocks/angular-mocks.js',
+      'assets/lib/angular-bootstrap/ui-bootstrap.min.js',
       'app.js',
       'config.js',
-      'components/**/*.js'
+      'components/**/*.js',
+      'shared/**/*.js'
     ],
 
     autoWatch: true,

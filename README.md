@@ -67,7 +67,7 @@ karma.config.js: Karma configuration file
 
 ##Notes
 
-- The intention was to create a well sctrured App, easy to mantain and esclate. 
+- The intention was to create a well sctrured App, easy to mantain and escalate. 
 - Developed a component called 'mines-game', with the intention to make a reusable AngularJs component.
 - Added Bootstrap for a better look and feel.
 - Added SASS preprocessor in order to type css code fast and clean.

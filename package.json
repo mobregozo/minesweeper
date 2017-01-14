@@ -3,9 +3,13 @@
   "version": "0.0.0",
   "main": "index.js",
   "description": "A resume App",
-  "devDependencies": {
-    "bower": "^1.7.7",
+  "dependencies": {
     "express": "^4.14.0",
+    "gzippo": "^0.2.0",
+    "morgan": "^1.7.0",
+    "bower": "^1.7.7",
+  },
+  "devDependencies": {
     "gulp-angular-templatecache": "^2.0.0",
     "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^2.3.2",
@@ -16,7 +20,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-useref": "^3.1.2",
     "gulp-zip": "^3.2.0",
-    "gzippo": "^0.2.0",
     "jasmine-core": "^2.4.1",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
@@ -25,7 +28,6 @@
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.8",
     "karma-junit-reporter": "^0.4.1",
-    "morgan": "^1.7.0",
     "protractor": "^4.0.9"
   },
   "scripts": {

@@ -1,6 +1,7 @@
 {
   "name": "resume",
   "version": "0.0.0",
+  "main": "index.js",
   "description": "A resume App",
   "devDependencies": {
     "bower": "^1.7.7",
